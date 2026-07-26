@@ -1,0 +1,31 @@
+appId: com.p2platex.app
+productName: P2P LaTeX
+directories:
+  output: dist
+files:
+  - out/**
+  - package.json
+# native modules (sodium-native, udx-native) load their prebuilds from real
+# files on disk — they can't be required from inside the asar archive
+asarUnpack:
+  - "**/*.node"
+  - "**/prebuilds/**"
+npmRebuild: false
+mac:
+  category: public.app-category.productivity
+  identity: null # unsigned local build; set a Developer ID for distribution
+  target:
+    - target: dmg
+      arch:
+        - arm64
+    - target: zip
+      arch:
+        - arm64
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Office
+win:
+  target:
+    - nsis

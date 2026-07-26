@@ -1,0 +1,41 @@
+# Builds installers for all three platforms when you push a version tag, and
+# attaches them to a draft GitHub release:
+#
+#   npm version patch          # bumps package.json, creates the tag
+#   git push --follow-tags
+#
+# Then review + publish the draft release on GitHub. The website's download
+# buttons point at /releases/latest, so they update automatically.
+#
+# macOS builds are UNSIGNED until you add Developer ID secrets. Once you have
+# an Apple Developer account, add CSC_LINK / CSC_KEY_PASSWORD (certificate)
+# and APPLE_ID / APPLE_APP_SPECIFIC_PASSWORD / APPLE_TEAM_ID (notarization)
+# as repository secrets, remove `identity: null` from electron-builder.yml,
+# and electron-builder picks them up from the environment automatically.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-14, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Build and publish installers
+        run: npx electron-vite build && npx electron-builder --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

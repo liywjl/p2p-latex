@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P2P LaTeX — free, local-first collaborative LaTeX editor</title>
+<meta name="description" content="A free, open-source Overleaf alternative. Real-time LaTeX collaboration over encrypted peer-to-peer connections — no server, no account, no subscription. Your files stay on your disk.">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --surface: #ffffff;
+    --ink: #2b2a26;
+    --muted: #6d6a60;
+    --accent: #2e6e4e;
+    --accent-ink: #ffffff;
+    --line: #e4e0d5;
+    --code-bg: #f0ede4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1f1d;
+      --surface: #262927;
+      --ink: #e8e6df;
+      --muted: #a3a198;
+      --accent: #58a97f;
+      --accent-ink: #10241a;
+      --line: #3a3d3a;
+      --code-bg: #30332f;
+    }
+  }
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font: 17px/1.65 Georgia, 'Times New Roman', serif;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+  h1, h2, h3 { line-height: 1.2; font-weight: 600; }
+  code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.85em;
+         background: var(--code-bg); padding: 2px 6px; border-radius: 4px; }
+
+  header.nav { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0; }
+  .brand { font-size: 20px; font-weight: 700; letter-spacing: 0.2px; }
+  .brand .tex { text-transform: uppercase; }
+  .nav a { text-decoration: none; margin-left: 20px; }
+
+  .hero { padding: 56px 0 40px; text-align: center; }
+  .hero h1 { font-size: clamp(30px, 5.5vw, 46px); max-width: 21ch; margin: 0 auto 18px; }
+  .hero p.sub { font-size: 19px; color: var(--muted); max-width: 56ch; margin: 0 auto 14px; }
+  .badges { color: var(--muted); font-style: italic; margin-bottom: 30px; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 8px;
+    text-decoration: none; font-family: system-ui, sans-serif; font-size: 15px; font-weight: 600;
+    border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.ghost { color: var(--accent); }
+  .fineprint { font-size: 13.5px; color: var(--muted); margin-top: 16px; font-family: system-ui, sans-serif; }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 27px; margin-bottom: 24px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px;
+  }
+  .card h3 { font-size: 17px; margin-bottom: 6px; }
+  .card p { font-size: 15px; color: var(--muted); line-height: 1.55; }
+
+  ol.steps { padding-left: 0; counter-reset: step; list-style: none; max-width: 640px; }
+  ol.steps li { counter-increment: step; display: flex; gap: 16px; margin-bottom: 18px; }
+  ol.steps li::before {
+    content: counter(step); flex: 0 0 34px; height: 34px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: system-ui, sans-serif; font-weight: 700; font-size: 16px;
+  }
+  .quiet { color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; font-size: 14.5px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="nav">
+    <div class="brand">P2P L<span style="font-size:0.75em;vertical-align:0.25em">A</span>T<span style="font-size:0.85em;vertical-align:-0.15em">E</span>X</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#sharing">Sharing</a>
+      <a href="#download">Download</a>
+      <a href="https://github.com/liywjl/p2p-latex">GitHub</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Write LaTeX together, without a server.</h1>
+    <p class="sub">A free, open-source alternative to Overleaf. Real-time collaboration
+    over encrypted peer-to-peer connections — no account, no subscription, no upload.
+    Your thesis lives in a normal folder on your own disk.</p>
+    <p class="badges">free forever &middot; open source (MIT) &middot; macOS, Windows &amp; Linux</p>
+    <div class="cta" id="download">
+      <a class="btn primary" href="https://github.com/liywjl/p2p-latex/releases/latest">Download for macOS</a>
+      <a class="btn primary" href="https://github.com/liywjl/p2p-latex/releases/latest">Windows</a>
+      <a class="btn primary" href="https://github.com/liywjl/p2p-latex/releases/latest">Linux</a>
+      <a class="btn ghost" href="https://github.com/liywjl/p2p-latex">View the source</a>
+    </div>
+    <p class="fineprint">Bring your own TeX: install
+      <a href="https://tectonic-typesetting.github.io">Tectonic</a> (<code>brew install tectonic</code>)
+      or <a href="https://tug.org/texlive/">TeX Live</a> / MacTeX, and the app finds it automatically.</p>
+    <!-- Remove this line once builds are signed/notarized -->
+    <p class="fineprint">macOS builds are not yet notarized: the first time, right-click the app
+      and choose <em>Open</em>.</p>
+  </div>
+
+  <section id="features">
+    <h2>Features</h2>
+    <div class="grid">
+      <div class="card"><h3>Google-Docs-style collaboration</h3>
+        <p>Live cursors and conflict-free merging of simultaneous edits (CRDTs). Send one
+        invite key and you're writing together — each person compiles locally.</p></div>
+      <div class="card"><h3>Truly peer-to-peer</h3>
+        <p>Peers connect directly with end-to-end encryption. No relay server ever sees
+        your writing; there is no company in the middle, because there is no middle.</p></div>
+      <div class="card"><h3>Built for huge documents</h3>
+        <p>Auto-compiles rebuild only the chapters you just edited: our 1,863-page
+        stress-test thesis takes 38&thinsp;s to build in full, but 4.6&thinsp;s after a
+        chapter edit. The PDF viewer renders only visible pages, so it opens instantly.</p></div>
+      <div class="card"><h3>Live PDF with SyncTeX</h3>
+        <p>The preview recompiles as you write. ⌘-click a source line to flash its spot
+        in the PDF; ⌘-click the PDF to jump back to the exact line.</p></div>
+      <div class="card"><h3>Smart editing</h3>
+        <p><code>\cite{</code> completes from your .bib files, <code>\ref{</code> from every
+        label in the project. A formatting toolbar shows the LaTeX behind every button,
+        so it doubles as a tutor.</p></div>
+      <div class="card"><h3>Works offline, survives restarts</h3>
+        <p>Sessions persist on disk. Edit on the train, reconnect later, and offline
+        changes merge back in cleanly.</p></div>
+    </div>
+  </section>
+
+  <section id="sharing">
+    <h2>How sharing works</h2>
+    <ol class="steps">
+      <li><div><strong>Share this project.</strong> One click gives you an invite key —
+        a random 52-character string that is the only secret. Treat it like a password
+        to the document.</div></li>
+      <li><div><strong>Send the key to a colleague</strong> over any channel you like.
+        They paste it on the welcome screen and pick an empty folder.</div></li>
+      <li><div><strong>Write together.</strong> The project syncs into their folder and
+        stays in sync — live cursors, offline edits merging back, everyone compiling on
+        their own machine.</div></li>
+    </ol>
+    <p class="quiet">Under the hood, peers find each other through a distributed hash
+    table that only ever sees a <em>hash</em> of the key, and every connection must prove
+    knowledge of the key itself before any data flows.</p>
+  </section>
+
+  <section id="support">
+    <h2>Support the project</h2>
+    <p style="max-width: 60ch">P2P LaTeX is free and MIT-licensed, and will stay that way.
+    If it saved your thesis (or your wallet), you can
+    star it on <a href="https://github.com/liywjl/p2p-latex">GitHub</a>,
+    report bugs and ideas in the
+    <a href="https://github.com/liywjl/p2p-latex/issues">issue tracker</a>, or
+    <!-- TODO: replace YOURNAME with your Buy Me a Coffee username -->
+    <a href="https://www.buymeacoffee.com/YOURNAME">buy me a coffee</a>. ☕</p>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding: 0">
+      <div>MIT licensed. This site sets no cookies and runs no analytics. The app phones
+      home to no one — it only talks to the DHT when you share, and to CTAN when your
+      TeX distribution fetches packages.</div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

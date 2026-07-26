@@ -1,0 +1,12 @@
+node_modules/
+out/
+dist/
+.DS_Store
+*.log
+.p2platex/
+
+# local tooling & credentials — never commit
+.claude/settings.local.json
+.env*
+*.p12
+*.provisionprofile
