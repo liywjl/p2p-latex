@@ -1,5 +1,8 @@
 # P2P LaTeX
 
+[![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support%20this%20project-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/willlacf)
+
 A free, local-first LaTeX editor with real-time peer-to-peer collaboration — an
 Overleaf alternative with no server, no account, and no subscription. Your
 files live in a normal folder on your disk; sharing happens over an encrypted

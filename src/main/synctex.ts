@@ -116,10 +116,11 @@ export function inverseSearch(
 ): InverseResult | null {
   // only consider records from files inside the project
   const projectTags = new Map<number, string>()
+  const absRoot = path.resolve(root)
   for (const [tag, input] of data.inputs) {
     const abs = path.resolve(root, input)
-    if (abs === root || abs.startsWith(root + path.sep)) {
-      projectTags.set(tag, path.relative(root, abs).split(path.sep).join('/'))
+    if (abs === absRoot || abs.startsWith(absRoot + path.sep)) {
+      projectTags.set(tag, path.relative(absRoot, abs).split(path.sep).join('/'))
     }
   }
   const xs = xBp / SP_TO_BP
