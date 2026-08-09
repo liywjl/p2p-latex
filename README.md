@@ -6,6 +6,8 @@ files live in a normal folder on your disk; sharing happens over an encrypted
 peer-to-peer swarm built on the [Holepunch / Pears](https://docs.pears.com/)
 stack.
 
+<img width="2880" height="1752" alt="screenshot" src="https://github.com/user-attachments/assets/f968b123-c26b-4765-80d8-17a72c461e24" />
+
 ## Features
 
 - **Point at a folder and write** — open any folder of `.tex` files, get a
