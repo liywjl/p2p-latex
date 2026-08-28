@@ -30,6 +30,7 @@ export async function readSavedSession(root: string): Promise<SavedSession | nul
 
 export async function writeSavedSession(root: string, s: SavedSession): Promise<void> {
   await window.api.writeTextFile(root, SESSION_FILE, JSON.stringify(s, null, 2))
+  await window.api.writeTextFile(root, '.p2platex/.gitignore', '*\n').catch(() => {})
 }
 
 export async function forgetSavedSession(root: string): Promise<void> {

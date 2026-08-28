@@ -18,6 +18,9 @@
   "author": "William L <contact@thabotech.com>",
   "license": "MIT",
   "type": "commonjs",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "dependencies": {
     "b4a": "^1.8.1",
     "chokidar": "^5.0.0",
