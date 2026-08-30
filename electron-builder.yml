@@ -13,7 +13,8 @@ asarUnpack:
 npmRebuild: false
 mac:
   category: public.app-category.productivity
-  identity: null # unsigned local build; set a Developer ID for distribution
+  hardenedRuntime: true
+  notarize: true
   target:
     - target: dmg
       arch:

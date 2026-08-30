@@ -7,11 +7,11 @@
 # Then review + publish the draft release on GitHub. The website's download
 # buttons point at /releases/latest, so they update automatically.
 #
-# macOS builds are UNSIGNED until you add Developer ID secrets. Once you have
-# an Apple Developer account, add CSC_LINK / CSC_KEY_PASSWORD (certificate)
-# and APPLE_ID / APPLE_APP_SPECIFIC_PASSWORD / APPLE_TEAM_ID (notarization)
-# as repository secrets, remove `identity: null` from electron-builder.yml,
-# and electron-builder picks them up from the environment automatically.
+# macOS builds are UNSIGNED until the five signing secrets exist on this repo
+# (MACOS_CERT_P12, MACOS_CERT_PASSWORD, APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD,
+# APPLE_TEAM_ID — the same names every app uses). Set them with release-kit's
+# setup-signing.sh wizard; electron-builder then signs and notarizes
+# automatically via the env mapping below.
 name: Release
 
 on:
@@ -39,3 +39,8 @@ jobs:
         run: npx electron-vite build && npx electron-builder --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_LINK: ${{ runner.os == 'macOS' && secrets.MACOS_CERT_P12 || '' }}
+          CSC_KEY_PASSWORD: ${{ runner.os == 'macOS' && secrets.MACOS_CERT_PASSWORD || '' }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
