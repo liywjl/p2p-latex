@@ -24,6 +24,7 @@
   ],
   "author": "William L <contact@thabotech.com>",
   "license": "MIT",
+  "repository": "https://github.com/liywjl/p2p-latex",
   "type": "commonjs",
   "engines": {
     "node": ">=22.13.0"

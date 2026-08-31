@@ -1,5 +1,9 @@
 appId: com.p2platex.app
 productName: P2P LaTeX
+publish:
+  provider: github
+  owner: liywjl
+  repo: p2p-latex
 directories:
   output: dist
 files:
