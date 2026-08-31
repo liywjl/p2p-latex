@@ -9,8 +9,8 @@
 #
 # macOS builds are UNSIGNED until the five signing secrets exist on this repo
 # (MACOS_CERT_P12, MACOS_CERT_PASSWORD, APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD,
-# APPLE_TEAM_ID — the same names every app uses). Set them with release-kit's
-# setup-signing.sh wizard; electron-builder then signs and notarizes
+# APPLE_TEAM_ID — the same names every app uses). Set them with
+# scripts/setup-signing.sh; electron-builder then signs and notarizes
 # automatically via the env mapping below.
 name: Release
 
