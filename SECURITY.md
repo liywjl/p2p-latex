@@ -2,7 +2,9 @@
 
 ## Reporting a vulnerability
 
-Email **contact@thabotech.com** with a description and reproduction steps.
+Use GitHub's private reporting: **Security tab → Report a vulnerability**,
+with a description and reproduction steps. Anything non-sensitive is welcome
+as a regular [issue](https://github.com/liywjl/p2p-latex/issues).
 Please don't open a public issue for anything exploitable — give us a chance
 to fix it first. You'll get an acknowledgement within a few days.
 

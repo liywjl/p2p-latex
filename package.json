@@ -22,7 +22,7 @@
     "local-first",
     "overleaf-alternative"
   ],
-  "author": "William L <contact@thabotech.com>",
+  "author": "William L",
   "license": "MIT",
   "repository": "https://github.com/liywjl/p2p-latex",
   "type": "commonjs",
