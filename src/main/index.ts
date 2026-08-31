@@ -1,4 +1,5 @@
 import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
+import { autoUpdater } from 'electron-updater'
 import { join } from 'path'
 import { registerFsIpc } from './fsipc'
 import { registerCompilerIpc } from './compiler'
@@ -46,6 +47,10 @@ function createWindow(): void {
 }
 
 app.whenReady().then(() => {
+  if (app.isPackaged) {
+    autoUpdater.checkForUpdatesAndNotify().catch(() => {})
+    setInterval(() => void autoUpdater.checkForUpdatesAndNotify().catch(() => {}), 60 * 60 * 1000)
+  }
   installMenu()
   registerFsIpc()
   registerCompilerIpc()

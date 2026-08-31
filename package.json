@@ -14,7 +14,14 @@
     "dist:dir": "electron-vite build && electron-builder --dir",
     "test:p2p": "node tests/p2p-integration.mjs"
   },
-  "keywords": ["latex", "editor", "collaboration", "p2p", "local-first", "overleaf-alternative"],
+  "keywords": [
+    "latex",
+    "editor",
+    "collaboration",
+    "p2p",
+    "local-first",
+    "overleaf-alternative"
+  ],
   "author": "William L <contact@thabotech.com>",
   "license": "MIT",
   "type": "commonjs",
@@ -24,6 +31,7 @@
   "dependencies": {
     "b4a": "^1.8.1",
     "chokidar": "^5.0.0",
+    "electron-updater": "^6.8.9",
     "hyperswarm": "^4.17.0",
     "z32": "^1.1.0"
   },

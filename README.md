@@ -1,7 +1,13 @@
-# P2P LaTeX
+<p align="center">
+  <img src="build/icon.png" width="128" alt="P2P LaTeX icon" />
+</p>
 
-[![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support%20this%20project-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/willlacf)
+<h1 align="center">P2P LaTeX</h1>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license" /></a>
+  <a href="https://buymeacoffee.com/willlacf"><img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support%20this%20project-FFDD00?logo=buymeacoffee&logoColor=black" alt="Buy Me A Coffee" /></a>
+</p>
 
 A free, local-first LaTeX editor with real-time peer-to-peer collaboration — an
 Overleaf alternative with no server, no account, and no subscription. Your
@@ -10,6 +16,18 @@ peer-to-peer swarm built on the [Holepunch / Pears](https://docs.pears.com/)
 stack.
 
 ![P2P LaTeX: file tree, LaTeX editor, and live PDF preview side by side](site/screenshot.png)
+
+## Download
+
+Grab the file for your computer from the [latest release](https://github.com/liywjl/p2p-latex/releases/latest), open it, and you're in:
+
+| Your computer | Download this |
+| --- | --- |
+| Mac (Apple Silicon — any Mac from 2021 on) | `P2P-LaTeX-<version>-arm64.dmg` |
+| Windows | `P2P-LaTeX-Setup-<version>.exe` |
+| Linux | `P2P-LaTeX-<version>.AppImage` (or the `.deb` on Debian/Ubuntu) |
+
+One extra thing: compiling LaTeX needs a TeX engine on your machine. If you don't have one, install [Tectonic](https://tectonic-typesetting.github.io) (`brew install tectonic` on a Mac) — the app walks you through it too. Details in [LaTeX engines](#latex-engines-and-licensing).
 
 ## Features
 
