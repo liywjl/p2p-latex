@@ -53,5 +53,6 @@ don't relax them without discussion:
 
 ## Releases (maintainers)
 
-`npm version patch && git push --follow-tags` — CI builds installers for all
-platforms and attaches them to a draft release.
+Run `npm run typecheck`, `npm test`, and `npm run dist` locally on each target
+platform, then upload the installers from `dist/` to a GitHub release manually.
+Pushing a tag no longer starts hosted builds.
